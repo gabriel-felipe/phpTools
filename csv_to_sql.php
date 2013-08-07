@@ -1,5 +1,39 @@
 <?php
-	$arquivo = file("db_perfil_frete.csv");
+/*
+Eu gosto de planejar meus bancos de dados usando planilhas, geralmente uso o google docs para isso.
+As planilhas seguem o formato
+----------------------------------.
+tabela a   | tabela b | tabela c  |
+----------------------------------.
+campo tb a |campo tb b|campo tb c |
+----------------------------------.
+Feito isso no google docs eu exporto para csv e rodo esse script que cria a sql básica para o banco. Ele usa alguns filtros nos nomes para sugerir os tipos de dados.
+Normalmente eu tenho que editar uns 20% dos tipos na mão. 
+
+As tabelas são nomeadas seguindo o seguinte padrão:
+chaves primarias tem o nome da tabela com o sufixo _id
+A príncipio ele não cria as conexões de chaves estrangeiras.
+Esse script não deve ser utilizado para se ter uma versão final do sql para gerar o banco, apenas para agilizar o processo inicial.
+
+Exemplo de output:
+imagine o seguinte csv (db_exemplo.csv):
+"
+perfil_frete,regra_frete,padrao_regra,estado,estado_regra
+perfil_frete_id,regra_frete_id,padrao_regra_id,estado_id,estado_id
+seller_id,perfil_frete_id,nome_metodo,sigla,regra_frete_id
+titulo,padrao_regra_id,parametros,estado,
+,parametros,,,
+"
+o resultado será algo como:
+"
+CREATE TABLE perfil_frete(perfil_frete_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,seller_id int(11) ,titulo varchar(255) );
+CREATE TABLE regra_frete(regra_frete_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,perfil_frete_id int(11) ,padrao_regra_id int(11) ,parametros varchar(255) );
+CREATE TABLE padrao_regra(padrao_regra_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,nome_metodo varchar(130) ,parametros varchar(255) );
+CREATE TABLE estado(estado_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,sigla varchar(255) ,estado varchar(255) );
+CREATE TABLE estado_regra(estado_id int(11) ,regra_frete_id int(11) );
+"
+*/
+	$arquivo = file("db_exemplo.csv");
 	ini_set('display_errors',1); 
  	error_reporting(E_ALL);
  	ini_set('html_errors', 'On');

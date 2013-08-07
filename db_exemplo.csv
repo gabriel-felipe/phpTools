@@ -1,0 +1,5 @@
+perfil_frete,regra_frete,padrao_regra,estado,estado_regra
+perfil_frete_id,regra_frete_id,padrao_regra_id,estado_id,estado_id
+seller_id,perfil_frete_id,nome_metodo,sigla,regra_frete_id
+titulo,padrao_regra_id,parametros,estado,
+,parametros,,,
