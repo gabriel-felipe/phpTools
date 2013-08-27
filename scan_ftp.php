@@ -1,4 +1,9 @@
 <?php
+    /*
+        THIS CODE NEEDS TO BE REFACTORED FOR BETTER READBILITY
+        The fix block, is repeated 3 times, that's wrong, i know. But it's working pretty fast this way, and i needed a fast solution, as soon as possible i will fix it.
+    */
+
     define('TRY_FIX',0); //PUt it to 0 if you don't want to mess with permissions.
     ini_set('max_allowed_memory','60M'); //You may have to ajust this number to fit your needs.
     echo "<b>Username of php process:</b>";
