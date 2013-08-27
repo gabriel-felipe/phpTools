@@ -1,6 +1,6 @@
 <?php
-    define('TRY_FIX',0775); //PUt it to 0 if you don't want to mess with permissions.
-    ini_set('max_allowed_memory','60M');
+    define('TRY_FIX',0); //PUt it to 0 if you don't want to mess with permissions.
+    ini_set('max_allowed_memory','60M'); //You may have to ajust this number to fit your needs.
     echo "<b>Username of php process:</b>";
     echo exec('whoami')."<br />";
     $startpath = $_SERVER['DOCUMENT_ROOT'];
